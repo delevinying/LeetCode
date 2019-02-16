@@ -38,6 +38,24 @@
  */
 class Solution {
     public int reverse(int x) {
-        
+        //当心溢出问题
+        //可能超出范围
+        if(x > 2147483647){return 0;}
+        if(x < -2147483648){return 0;}
+        String str = x + "";
+        boolean isF = str.contains("-");
+        str = str.replace("-","");
+		StringBuffer sbBuffer =new StringBuffer(str);
+		str=sbBuffer.reverse().toString();
+        int temp = 0;
+        //转化后也可能超出范围
+        if(Double.parseDouble(str) > 2147483647){return 0;}
+        if(-Double.parseDouble(str) < -2147483648){return 0;}
+        if(isF == false){
+            temp = Integer.parseInt(str);
+        }else{
+            temp = -Integer.parseInt(str);
+        }
+        return temp;
     }
 }
