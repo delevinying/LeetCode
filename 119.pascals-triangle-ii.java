@@ -1,3 +1,5 @@
+import java.util.List;
+
 /*
  * @lc app=leetcode.cn id=119 lang=java
  *
@@ -30,6 +32,10 @@
  */
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        
+        if(rowIndex == 0){
+            List<Integer> l = new List<Integer>();
+            l.add(1);
+            return l;
+        }
     }
 }
