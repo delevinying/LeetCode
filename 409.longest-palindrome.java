@@ -34,6 +34,17 @@
  */
 class Solution {
     public int longestPalindrome(String s) {
-        
+        int[] map = new int[128];
+        for(char c:s.toCharArray()){
+            map[c]++; 
+        }
+        int t = 0,carry = 0;
+        for(int i = 0;i<128;i++){
+            if(map[i] > 0){
+                if((map[i] & 1) == 1) carry = 1; 
+                t+=map[i] / 2;
+            }
+        }
+        return t * 2 + carry;
     }
 }

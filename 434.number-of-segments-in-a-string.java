@@ -24,6 +24,21 @@
  */
 class Solution {
     public int countSegments(String s) {
+        int sum = 0;
+        int flag = 0;
         
+        for(int i = 0; i < s.length(); ++i){
+            char ch = s.charAt(i);
+            if(ch == ' ')
+                flag = 0;
+            if(ch != ' ' && flag == 0)
+            {
+                sum++;
+                flag = 1;
+            }
+                
+        }
+        
+        return sum; 
     }
 }
